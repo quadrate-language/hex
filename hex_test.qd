@@ -51,3 +51,11 @@ test "hex::is_valid" {
 	"GHI" hex::is_valid testing::assert_false
 	"48656C6C6G" hex::is_valid testing::assert_false
 }
+
+test "hex long string" {
+	"414141414141414141414141414141414141414141" hex::decode "AAAAAAAAAAAAAAAAAAAAA" testing::assert_eq
+}
+
+test "hex mixed case" {
+	"48656c6C6f" hex::decode "Hello" testing::assert_eq
+}
